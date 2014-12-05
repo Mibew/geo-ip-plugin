@@ -1,0 +1,19 @@
+# Do not index node.js modules that are used for building
+node_modules
+
+# Do not index composer components
+vendor
+
+# Do not index releases
+release
+
+# Do not index vendor binaries
+bin
+
+# Do not index GeoIP databases but not the .htaccess file that hides them.
+db/*
+!db/.htaccess
+
+# Do not index composer executable and its lock file
+composer.phar
+composer.lock

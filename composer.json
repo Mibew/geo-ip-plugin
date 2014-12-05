@@ -1,0 +1,8 @@
+{
+    "require": {
+        "geoip2/geoip2": "2.1.*"
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}
