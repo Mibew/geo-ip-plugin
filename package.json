@@ -1,11 +1,5 @@
 {
-    "name": "geo-ip",
     "version": "1.0.0",
-    "description": "A plugin for Mibew that provides GeoIP information.",
-    "private": true,
-    "bugs": {
-        "url": "https://github.com/mibew/geo-ip-plugin/issues"
-    },
     "devDependencies": {
         "gulp": "~3.8.8",
         "event-stream": "~3.1.7",
