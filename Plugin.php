@@ -103,11 +103,11 @@ class Plugin extends \Mibew\Plugin\AbstractPlugin implements \Mibew\Plugin\Plugi
             : $record->city->name;
 
         return array(
-            'country_name' => $country_name,
-            'country_code' => $record->country->isoCode,
-            'city' => $city,
-            'latitude' => $record->location->latitude,
-            'longitude' => $record->location->longitude,
+            'country_name' => $country_name ?: 'Unknown',
+            'country_code' => $record->country->isoCode ?: false,
+            'city' => $city ?: 'Unknown',
+            'latitude' => $record->location->latitude ?: 0,
+            'longitude' => $record->location->longitude ?: 0,
         );
     }
 
@@ -126,7 +126,7 @@ class Plugin extends \Mibew\Plugin\AbstractPlugin implements \Mibew\Plugin\Plugi
      */
     public static function getVersion()
     {
-        return '1.0.0';
+        return '1.0.1';
     }
 
     /**
