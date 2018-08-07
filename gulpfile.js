@@ -46,7 +46,7 @@ gulp.task('prepare-release', ['composer-install'], function() {
             .pipe(tar('geo-ip-plugin-' + version + '.tar'))
             .pipe(gzip())
     )
-    .pipe(chmod(0644))
+    .pipe(chmod(644))
     .pipe(gulp.dest('release'));
 });
 
