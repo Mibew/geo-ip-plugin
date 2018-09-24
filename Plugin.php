@@ -140,6 +140,21 @@ class Plugin extends \Mibew\Plugin\AbstractPlugin implements \Mibew\Plugin\Plugi
     }
 
     /**
+     * Returns plugin's system requirements
+     *
+     * @return type
+     */
+    public static function getSystemRequirements()
+    {
+        if (extension_loaded('gmp')) {
+            return array('ext-gmp' => '*');
+        }
+        else {
+            return array('ext-bcmath' => '*');
+        }
+    }
+
+    /**
      * Format locale name using "xx-XX" format.
      *
      * @param string $locale Original locale name in format it is used in Mibew.

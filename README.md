@@ -2,6 +2,7 @@
 
 Provides Geo IP information for other plugins.
 
+*Requires either [GMP (GNU Multiple Precision)](http://php.net/manual/en/book.gmp.php) or [BC Math (BCMath Arbitrary Precision Mathematics)](http://php.net/manual/en/book.bc.php) PHP extension.*
 
 ## Installation
 
