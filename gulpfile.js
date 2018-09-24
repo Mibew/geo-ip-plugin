@@ -9,6 +9,11 @@ var fs = require('fs'),
     gzip = require('gulp-gzip'),
     rename = require('gulp-rename');
 
+    var config = {
+        getComposerUrl: 'https://getcomposer.org/installer',
+        phpBin: 'php -d "suhosin.executor.include.whitelist = phar" -d "memory_limit=512M"'
+    }
+
 // Get and install PHP Composer
 gulp.task('get-composer', function(callback) {
     // Check if Composer already in place
@@ -19,9 +24,9 @@ gulp.task('get-composer', function(callback) {
     }
 
     // Get installer from the internet
-    https.get('https://getcomposer.org/installer', function(response) {
+    https.get(config.getComposerUrl, function(response) {
         // Run PHP to install Composer
-        var php = exec('php', function(error, stdout, stderr) {
+        var php = exec(config.phpBin, function(error, stdout, stderr) {
             callback(error ? stderr : null);
         });
         // Pass installer code to PHP via STDIN
@@ -31,7 +36,7 @@ gulp.task('get-composer', function(callback) {
 
 // Install Composer dependencies
 gulp.task('composer-install', ['get-composer'], function(callback) {
-    exec('php -d "suhosin.executor.include.whitelist = phar" composer.phar install --no-dev', function(error, stdout, stderr) {
+    exec(config.phpBin + ' composer.phar install --no-dev', function(error, stdout, stderr) {
         callback(error ? stderr : null);
     });
 });
